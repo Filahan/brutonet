@@ -5,14 +5,14 @@ export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-xl text-center justify-center">
-        <span className={title()}>Calculateur de&nbsp;</span>
+        <span className={title()}>Simulateur de&nbsp;</span>
         <span className={title({ color: "blue" })}>Salaire&nbsp;</span>
         <br />
         <span className={title()}>
-          Brut en Net
+          2025
         </span>
         <div className={subtitle({ class: "mt-4" })}>
-          Estimez rapidement votre salaire net à partir de votre salaire brut avec notre calculateur simple.
+          Calculez instantanément votre rémunération selon les règles de la loi de finance 2025.
         </div>
       </div>
 
@@ -21,8 +21,8 @@ export default function Home() {
       </div>
       
       <div className="mt-8 text-sm text-default-500 max-w-xl text-center">
-        <p>Note: Ce calculateur utilise un taux d'imposition simplifié de 23% à titre d'exemple. 
-        Pour un calcul plus précis, consultez un professionnel de la comptabilité.</p>
+        <p>Note: Ce simulateur utilise les taux de la loi de finance 2025 (25% pour cadres, 22% pour non-cadres). 
+        Les tranches d'imposition sont également celles prévues par la loi de finance 2025.</p>
       </div>
     </section>
   );
