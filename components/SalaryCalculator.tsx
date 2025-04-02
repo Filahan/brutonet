@@ -682,10 +682,11 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
 
       {/* Tax Brackets Table */}
       <div className="mt-8 bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-sm">
-        <Table aria-label="Table des tranches d'imposition">
+
+        <Table aria-label="Table des tranches d&apos;imposition">
           <TableHeader>
             <TableColumn>Tranche</TableColumn>
-            <TableColumn>Taux d'imposition</TableColumn>
+            <TableColumn>Taux d&apos;imposition</TableColumn>
             <TableColumn>Montant imposable</TableColumn>
           </TableHeader>
           <TableBody>
