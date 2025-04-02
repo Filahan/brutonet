@@ -37,7 +37,7 @@ export const INCOME_TAX_BRACKETS = [
 // Taux par défaut pour le simulateur
 export const DEFAULT_VALUES = {
   defaultMonthlyGross: 3000,
-  defaultTaxRate: 15,
+  defaultTaxRate: 6.5,
   defaultStatus: "non-cadre" as const,
 };
 

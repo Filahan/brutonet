@@ -23,9 +23,6 @@ export default function Home() {
         <SalaryCalculator onStatusChange={setStatus} />
       </div>
       
-      <div className="mt-8 text-sm text-default-500 max-w-xl text-center">
-        <p>Note: Ce simulateur utilise un taux de {rate} pour les {status} avec un calcul progressif par tranche.</p>
-      </div>
     </section>
   );
 }

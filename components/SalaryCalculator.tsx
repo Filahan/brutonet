@@ -4,6 +4,7 @@ import { useState, useEffect, ChangeEvent } from "react";
 import { Input } from "@heroui/input";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@heroui/dropdown";
 import { Slider } from "@heroui/slider";
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@heroui/table";
 import { 
   SOCIAL_CONTRIBUTIONS, 
   DEFAULT_VALUES, 
@@ -125,8 +126,28 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
   };
 
   const calculateFromAnnualGross = (value: number, updateTaxRate = false) => {
+    // Calculer le salaire mensuel brut exact sans arrondir
     const monthlyGross = value / MONTHS_PER_YEAR;
-    calculateFromMonthlyGross(monthlyGross, updateTaxRate);
+    
+    // Calculer le salaire mensuel net avant impôt sans arrondir
+    const grossCoeff = SOCIAL_CONTRIBUTIONS[status].coefficient;
+    const nBeforeTax = monthlyGross * grossCoeff;
+    
+    // Calculer le salaire annuel net avant impôt
+    const aNBeforeTax = nBeforeTax * MONTHS_PER_YEAR;
+    const aTax = calculateProgressiveTax(aNBeforeTax);
+    const mTax = aTax / MONTHS_PER_YEAR;
+    
+    // Calculer le salaire net après impôt
+    const nAfterTax = nBeforeTax - mTax;
+    
+    // Mettre à jour tous les états avec les valeurs exactes
+    setMonthlySalaryGross(monthlyGross);
+    setMonthlyNetBeforeTax(nBeforeTax);
+    setMonthlySalaryNet(nAfterTax);
+    setAnnualSalaryGross(value);
+    setAnnualNetBeforeTax(aNBeforeTax);
+    setAnnualSalaryNet(nAfterTax * MONTHS_PER_YEAR);
   };
 
   const calculateFromAnnualNet = (value: number, updateTaxRate = false) => {
@@ -196,12 +217,32 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
     
     const value = parseFloat(inputValue);
     if (!isNaN(value)) {
+      // Garder la valeur exacte saisie
       setAnnualSalaryGross(value);
-      // Don&apos;t recalculate the annual gross value when directly editing it
-      const updatedValues = { ...calculateAllExcept("annualGross", value) };
-      updateValues(updatedValues);
       
-      // Apply suggested tax rate automatically
+      // Calculer le salaire mensuel brut
+      const monthlyGross = value / MONTHS_PER_YEAR;
+      
+      // Calculer le salaire mensuel net avant impôt
+      const grossCoeff = SOCIAL_CONTRIBUTIONS[status].coefficient;
+      const nBeforeTax = monthlyGross * grossCoeff;
+      
+      // Calculer le salaire annuel net avant impôt
+      const aNBeforeTax = nBeforeTax * MONTHS_PER_YEAR;
+      const aTax = calculateProgressiveTax(aNBeforeTax);
+      const mTax = aTax / MONTHS_PER_YEAR;
+      
+      // Calculer le salaire net après impôt
+      const nAfterTax = nBeforeTax - mTax;
+      
+      // Mettre à jour les autres valeurs
+      setMonthlySalaryGross(monthlyGross);
+      setMonthlyNetBeforeTax(nBeforeTax);
+      setMonthlySalaryNet(nAfterTax);
+      setAnnualNetBeforeTax(aNBeforeTax);
+      setAnnualSalaryNet(nAfterTax * MONTHS_PER_YEAR);
+      
+      // Appliquer le taux d'imposition suggéré
       const suggestedRate = getSuggestedTaxRate(value);
       setTaxRate(suggestedRate);
     }
@@ -458,7 +499,7 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full px-4 sm:px-0">
       <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
         {/* First Column - Monthly values */}
         <div className="space-y-4">
@@ -487,7 +528,7 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
                   value={monthlyNetBeforeTax === 0 ? "" : monthlyNetBeforeTax.toString()}
                   onChange={handleMonthlyNetBeforeTaxChange}
                   label="Mensuel Net Avant Impôt"
-                  placeholder="Saisir le montant net avant impôt"
+                  placeholder="Saisir le montant"
                   endContent={
                     <div className="pointer-events-none flex items-center">
                       <span className="text-default-400 text-small">€</span>
@@ -543,7 +584,7 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
                   value={annualNetBeforeTax === 0 ? "" : annualNetBeforeTax.toString()}
                   onChange={handleAnnualNetBeforeTaxChange}
                   label="Annuel Net Avant Impôt"
-                  placeholder="Saisir le montant net avant impôt"
+                  placeholder="Saisir le montant"
                   endContent={
                     <div className="pointer-events-none flex items-center">
                       <span className="text-default-400 text-small">€</span>
@@ -559,7 +600,7 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
                   value={annualSalaryNet === 0 ? "" : annualSalaryNet.toString()}
                   onChange={handleAnnualNetChange}
                   label="Annuel Net Après Impôt"
-                  placeholder="Saisir le montant net"
+                  placeholder="Saisir le montant"
                   endContent={
                     <div className="pointer-events-none flex items-center">
                       <span className="text-default-400 text-small">€</span>
@@ -637,6 +678,33 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
             </DropdownMenu>
           </Dropdown>
         </div>
+      </div>
+
+      {/* Tax Brackets Table */}
+      <div className="mt-8 bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-sm">
+        <Table aria-label="Table des tranches d'imposition">
+          <TableHeader>
+            <TableColumn>Tranche</TableColumn>
+            <TableColumn>Taux d'imposition</TableColumn>
+            <TableColumn>Montant imposable</TableColumn>
+          </TableHeader>
+          <TableBody>
+            {INCOME_TAX_BRACKETS.map((bracket, index) => {
+              const nextBracket = INCOME_TAX_BRACKETS[index + 1];
+              const range = nextBracket 
+                ? `${bracket.threshold.toLocaleString('fr-FR')} € - ${(nextBracket.threshold - 1).toLocaleString('fr-FR')} €`
+                : `Plus de ${bracket.threshold.toLocaleString('fr-FR')} €`;
+              
+              return (
+                <TableRow key={index}>
+                  <TableCell>{index + 1}</TableCell>
+                  <TableCell>{(bracket.rate * 100).toFixed(0)}%</TableCell>
+                  <TableCell>{range}</TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
       </div>
     </div>
   );

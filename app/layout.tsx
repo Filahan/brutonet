@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["salaire", "brut", "net", "calculateur", "convertisseur", "salaire brut en net", "simulateur salaire"],
+  keywords: siteConfig.keywords,
   authors: [{ name: "Brutonet" }],
   creator: "Brutonet",
   publisher: "Brutonet",
@@ -36,12 +36,21 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Calculateur de Salaire Brut en Net 2024',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
     creator: '@brutonet',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -61,6 +70,8 @@ export const metadata: Metadata = {
   verification: {
     google: 'google-site-verification-code', // À remplacer par votre code de vérification Google
   },
+  category: 'finance',
+  classification: 'Calculatrice',
 };
 
 export const viewport: Viewport = {
@@ -87,7 +98,7 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+            <main className="container mx-auto max-w-7xl pt-10 px-6 flex-grow">
               {children}
             </main>
             <footer className="w-full flex items-center justify-center py-3">
