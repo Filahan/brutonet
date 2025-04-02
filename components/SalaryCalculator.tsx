@@ -146,8 +146,8 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
     const value = parseFloat(inputValue);
     if (!isNaN(value)) {
       setMonthlySalaryGross(value);
-      // Don't recalculate the monthly gross value when directly editing it
-      const updatedValues = { ...calculateAllExcept('monthlyGross', value) };
+      // Don&apos;t recalculate the monthly gross value when directly editing it
+      const updatedValues = { ...calculateAllExcept("monthlyGross", value) };
       updateValues(updatedValues);
     }
   };
@@ -163,8 +163,8 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
     const value = parseFloat(inputValue);
     if (!isNaN(value)) {
       setMonthlyNetBeforeTax(value);
-      // Don't recalculate the monthly net before tax value when directly editing it
-      const updatedValues = { ...calculateAllExcept('monthlyNetBeforeTax', value) };
+      // Don&apos;t recalculate the monthly net before tax value when directly editing it
+      const updatedValues = { ...calculateAllExcept("monthlyNetBeforeTax", value) };
       updateValues(updatedValues);
     }
   };
@@ -180,8 +180,8 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
     const value = parseFloat(inputValue);
     if (!isNaN(value)) {
       setMonthlySalaryNet(value);
-      // Don't recalculate the monthly net value when directly editing it
-      const updatedValues = { ...calculateAllExcept('monthlyNet', value) };
+      // Don&apos;t recalculate the monthly net value when directly editing it
+      const updatedValues = { ...calculateAllExcept("monthlyNet", value) };
       updateValues(updatedValues);
     }
   };
@@ -197,8 +197,8 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
     const value = parseFloat(inputValue);
     if (!isNaN(value)) {
       setAnnualSalaryGross(value);
-      // Don't recalculate the annual gross value when directly editing it
-      const updatedValues = { ...calculateAllExcept('annualGross', value) };
+      // Don&apos;t recalculate the annual gross value when directly editing it
+      const updatedValues = { ...calculateAllExcept("annualGross", value) };
       updateValues(updatedValues);
       
       // Apply suggested tax rate automatically
@@ -218,8 +218,8 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
     const value = parseFloat(inputValue);
     if (!isNaN(value)) {
       setAnnualNetBeforeTax(value);
-      // Don't recalculate the annual net before tax value when directly editing it
-      const updatedValues = { ...calculateAllExcept('annualNetBeforeTax', value) };
+      // Don&apos;t recalculate the annual net before tax value when directly editing it
+      const updatedValues = { ...calculateAllExcept("annualNetBeforeTax", value) };
       updateValues(updatedValues);
       
       // Apply suggested tax rate automatically without rounding
@@ -239,8 +239,8 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
     const value = parseFloat(inputValue);
     if (!isNaN(value)) {
       setAnnualSalaryNet(value);
-      // Don't recalculate the annual net value when directly editing it
-      const updatedValues = { ...calculateAllExcept('annualNet', value) };
+      // Don&apos;t recalculate the annual net value when directly editing it
+      const updatedValues = { ...calculateAllExcept("annualNet", value) };
       updateValues(updatedValues);
       
       // Apply suggested tax rate automatically
@@ -421,7 +421,7 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
     // Sort brackets by threshold (ascending)
     const sortedBrackets = [...INCOME_TAX_BRACKETS].sort((a, b) => a.threshold - b.threshold);
     
-    // Apply each bracket's rate to the portion of income that falls within it
+    // Apply each bracket&apos;s rate to the portion of income that falls within it
     for (let i = 0; i < sortedBrackets.length; i++) {
       const currentBracket = sortedBrackets[i];
       const nextBracket = sortedBrackets[i + 1];
@@ -439,7 +439,7 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
         taxableInThisBracket = remainingIncome;
       }
       
-      // Apply tax rate to this bracket's portion
+      // Apply tax rate to this bracket&apos;s portion
       if (taxableInThisBracket > 0) {
         totalTax += taxableInThisBracket * currentBracket.rate;
         remainingIncome -= taxableInThisBracket;

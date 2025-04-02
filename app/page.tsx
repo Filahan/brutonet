@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-0 md:py-1">
       <div className="inline-block max-w-xl text-center justify-center">
-        <span className={title()}>Simulateur de&nbsp;</span>
-        <span className={title({ color: "blue" })}>Salaire&nbsp;</span>
+        <span className={title()}>Simulateur de </span>
+        <span className={title({ color: "blue" })}>Salaire </span>
         <br />
         <div className={subtitle({ class: "mt-5" })}>
           Calculez instantanément votre rémunération selon les règles de la loi de finance 2025.

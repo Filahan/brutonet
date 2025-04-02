@@ -26,9 +26,9 @@ export const SOCIAL_CONTRIBUTIONS: SocialContributions = {
   }
 };
 
-// Tranches d'imposition sur le revenu 2025
+// Tranches d&apos;imposition sur le revenu 2025
 export const INCOME_TAX_BRACKETS = [
-  { threshold: 0, rate: 0 }, // 0% jusqu'à 11 497 €
+  { threshold: 0, rate: 0 }, // 0% jusqu&apos;à 11 497 €
   { threshold: 11498, rate: 0.11 }, // 11% de 11 498 € à 29 315 €
   { threshold: 29316, rate: 0.30 }, // 30% de 29 316 € à 83 823 €
   { threshold: 83824, rate: 0.41 }, // 41% de 83 824 € à 180 294 €
