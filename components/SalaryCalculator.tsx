@@ -577,12 +577,13 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Tax Rate Slider */}
         <div className="flex flex-col">
-          <label className="block text-sm font-medium mb-4">
+          <label htmlFor="taxRate" className="block text-sm font-medium mb-4">
             Taux de prélèvement à la source: {taxRate.toFixed(1)}%
           </label>
           <div className="flex items-center space-x-2">
             <span className="text-sm">0%</span>
             <Slider
+              id="taxRate"
               aria-label="Taux de prélèvement"
               className="flex-1"
               color="primary"
@@ -601,10 +602,10 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
         
         {/* Status Dropdown */}
         <div className="flex flex-col">
-          <label className="block text-sm font-medium mb-1">Statut</label>
+          <label htmlFor="status" className="block text-sm font-medium mb-1">Statut</label>
           <Dropdown>
             <DropdownTrigger>
-              <button className="w-full px-4 py-2 text-left border rounded-full shadow-sm flex justify-between items-center">
+              <button id="status" className="w-full px-4 py-2 text-left border rounded-full shadow-sm flex justify-between items-center">
                 <div className="flex items-center gap-2">
                   <span>{status === "cadre" ? "Cadre" : "Non-cadre"}</span>
                   <span className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
