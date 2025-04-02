@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Calculateur de Salaire",
-  description: "Convertissez facilement votre salaire brut en salaire net avec notre calculateur simple.",
+  name: "Calculateur de Salaire Brut en Net | Brutonet",
+  description: "Calculez instantanément votre salaire net à partir du brut. Notre calculateur de salaire prend en compte les charges sociales, les impôts et les avantages fiscaux pour vous donner une estimation précise de votre rémunération nette. Simple, rapide et fiable.",
   navItems: [
    
     {
