@@ -15,7 +15,7 @@ export default function Home() {
         <span className={title({ color: "blue" })}>Salaire </span>
         <br />
         <div className={subtitle({ class: "mt-5" })}>
-          Calculez instantanément votre rémunération selon les règles de la loi de finance 2025.
+          Calculez instantanément votre rémunération.
         </div>
       </div>
 

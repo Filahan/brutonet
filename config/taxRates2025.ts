@@ -1,4 +1,3 @@
-// Configuration des charges sociales et fiscales selon la loi de finance 2025
 
 // Types for social contributions
 export type StatusType = "cadre" | "non-cadre";
