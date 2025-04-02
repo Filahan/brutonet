@@ -1,38 +1,38 @@
 // Configuration des charges sociales et fiscales selon la loi de finance 2025
 
-// Taux de charges sociales (conversion brut -> net avant impôt)
-export const SOCIAL_CONTRIBUTIONS = {
+// Types for social contributions
+export type StatusType = "cadre" | "non-cadre";
+
+export interface SocialContribution {
+  rate: number;
+  coefficient: number;
+}
+
+export interface SocialContributions {
+  [key: string]: SocialContribution;
+}
+
+// Default social contributions configuration
+export const SOCIAL_CONTRIBUTIONS: SocialContributions = {
   // Taux pour les cadres
   cadre: {
     rate: 0.25, // 25% de charges sociales
     coefficient: 0.75, // Coefficient de conversion (1 - taux)
-    details: {
-      retraite: 0.12, // Retraite
-      maladie: 0.07, // Assurance maladie
-      chomage: 0.04, // Assurance chômage
-      autres: 0.02, // Autres cotisations
-    },
   },
   // Taux pour les non-cadres
   "non-cadre": {
     rate: 0.22, // 22% de charges sociales
     coefficient: 0.78, // Coefficient de conversion (1 - taux)
-    details: {
-      retraite: 0.10, // Retraite
-      maladie: 0.07, // Assurance maladie
-      chomage: 0.03, // Assurance chômage
-      autres: 0.02, // Autres cotisations
-    },
-  },
+  }
 };
 
 // Tranches d'imposition sur le revenu 2025
 export const INCOME_TAX_BRACKETS = [
-  { threshold: 0, rate: 0 }, // 0%
-  { threshold: 11294, rate: 0.11 }, // 11%
-  { threshold: 28797, rate: 0.30 }, // 30%
-  { threshold: 82341, rate: 0.41 }, // 41%
-  { threshold: 177106, rate: 0.45 }, // 45%
+  { threshold: 0, rate: 0 }, // 0% jusqu'à 11 497 €
+  { threshold: 11498, rate: 0.11 }, // 11% de 11 498 € à 29 315 €
+  { threshold: 29316, rate: 0.30 }, // 30% de 29 316 € à 83 823 €
+  { threshold: 83824, rate: 0.41 }, // 41% de 83 824 € à 180 294 €
+  { threshold: 180295, rate: 0.45 }, // 45% au-delà de 180 294 €
 ];
 
 // Taux par défaut pour le simulateur

@@ -4,20 +4,13 @@ export const siteConfig = {
   name: "Calculateur de Salaire",
   description: "Convertissez facilement votre salaire brut en salaire net avec notre calculateur simple.",
   navItems: [
-    {
-      label: "Accueil",
-      href: "/",
-    },
+   
     {
       label: "À propos",
       href: "/about",
     },
   ],
   navMenuItems: [
-    {
-      label: "Accueil",
-      href: "/",
-    },
     {
       label: "À propos",
       href: "/about",

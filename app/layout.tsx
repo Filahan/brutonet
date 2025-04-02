@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/favicon.ico",
+    // icon: "/favicon.ico",
   },
 };
 
@@ -48,15 +48,9 @@ export default function RootLayout({
               {children}
             </main>
             <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://heroui.com?utm_source=next-app-template"
-                title="heroui.com homepage"
-              >
-                <span className="text-default-600">Powered by</span>
-                <p className="text-primary">HeroUI</p>
-              </Link>
+              <div className="text-center text-sm text-default-500">
+                <p>© {new Date().getFullYear()} Brutonet. All rights reserved.</p>
+              </div>
             </footer>
           </div>
         </Providers>
