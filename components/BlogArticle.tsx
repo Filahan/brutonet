@@ -1,5 +1,6 @@
 import { title, subtitle } from "@/components/primitives";
 import MetaData from "./MetaData";
+import Link from "next/link";
 
 interface Section {
   title: string;
@@ -74,6 +75,14 @@ export default function BlogArticle({
               )}
             </section>
           ))}
+        </div>
+
+        <div className="mt-12 mb-12 text-center">
+          <Link href="/" className="inline-block">
+            <button className="px-8 py-4 text-lg font-semibold rounded-full bg-gradient-to-r from-[#FF1CF7] via-[#FF705B] to-[#5EA2EF] text-white hover:opacity-90 transition-opacity shadow-lg">
+              Calculer mon salaire net
+            </button>
+          </Link>
         </div>
       </article>
     </>

@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Calculateur de Salaire Brut en Net 2024 | Brutonet",
+  name: "Calculateur de Salaire Brut en Net | Brutonet",
   description: "Calculez instantanément votre salaire net à partir du brut. Notre calculateur de salaire prend en compte les charges sociales (25% cadre, 22% non-cadre), les impôts sur le revenu par tranche, et le prélèvement à la source pour vous donner une estimation précise de votre rémunération nette. Simple, rapide et fiable.",
   keywords: [
     "calculateur salaire",
@@ -16,7 +16,7 @@ export const siteConfig = {
     "charges sociales",
     "salaire mensuel",
     "salaire annuel",
-    "calcul salaire 2024",
+    "calcul salaire",
     "simulateur salaire brut net",
     "calcul salaire cadre",
     "calcul salaire non cadre",
