@@ -1,0 +1,38 @@
+{
+  "articles": [
+    {
+      "id": "charges-sociales",
+      "title": "Comprendre les charges sociales",
+      "description": "Découvrez comment sont calculées vos charges sociales et comment les optimiser.",
+      "image": "/blog/blog1.jpg",
+      "date": "2024-04-03",
+      "content": {
+        "introduction": "Les charges sociales représentent une part importante de votre rémunération brute. Comprendre leur fonctionnement est essentiel pour optimiser votre salaire net.",
+        "sections": [
+          {
+            "title": "Qu'est-ce que les charges sociales ?",
+            "content": "Les charges sociales sont des cotisations obligatoires prélevées sur votre salaire brut. Elles financent la protection sociale (santé, retraite, chômage, etc.) et représentent environ 22% à 25% de votre salaire brut selon votre statut."
+          },
+          {
+            "title": "Comment sont-elles calculées ?",
+            "content": "Le calcul des charges sociales dépend de plusieurs facteurs :",
+            "list": [
+              "Votre statut (cadre ou non-cadre)",
+              "Votre salaire brut",
+              "Les différentes cotisations (santé, retraite, chômage, etc.)"
+            ]
+          },
+          {
+            "title": "Comment les optimiser ?",
+            "content": "Plusieurs stratégies existent pour optimiser vos charges sociales :",
+            "list": [
+              "Choisir le bon statut (cadre ou non-cadre)",
+              "Utiliser les dispositifs de défiscalisation",
+              "Optimiser votre rémunération variable"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+} 
