@@ -1,12 +1,12 @@
-'use client'
+"use client";
 
-import { title, subtitle } from "@/components/primitives";
-import SalaryCalculator from "@/components/SalaryCalculator";
-import { useState, useEffect } from "react";
-import HorizontalBlogList from "@/components/HorizontalBlogList";
-import blogData from "@/data/blog.json";
+import { useState } from "react";
 import Image from "next/image";
 import Script from "next/script";
+
+import SalaryCalculator from "@/components/SalaryCalculator";
+import HorizontalBlogList from "@/components/HorizontalBlogList";
+import blogData from "@/data/blog.json";
 
 export default function Home() {
   const [status, setStatus] = useState<"cadre" | "non-cadre">("cadre");
@@ -31,14 +31,14 @@ export default function Home() {
           }
         `}
       </Script>
-      
+
       <div className="relative w-full max-w-xl h-[200px] md:h-[250px] rounded-2xl bg-gray-100 mb-5">
         <Image
-          src="/blog/salary-calculator-banner.png"
-          alt="Simulateur de Salaire"
           fill
-          className="object-cover rounded-2xl"
           priority
+          alt="Simulateur de Salaire"
+          className="object-cover rounded-2xl"
+          src="/blog/salary-calculator-banner.png"
         />
       </div>
 
@@ -53,5 +53,3 @@ export default function Home() {
     </section>
   );
 }
-
-

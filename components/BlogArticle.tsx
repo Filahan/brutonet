@@ -1,7 +1,9 @@
-import { title, subtitle } from "@/components/primitives";
-import MetaData from "./MetaData";
 import Link from "next/link";
 import Script from "next/script";
+
+import MetaData from "./MetaData";
+
+import { title, subtitle } from "@/components/primitives";
 
 interface Section {
   title: string;
@@ -18,27 +20,27 @@ interface BlogArticleProps {
   url: string;
 }
 
-export default function BlogArticle({ 
-  title: articleTitle, 
-  introduction, 
-  sections, 
+export default function BlogArticle({
+  title: articleTitle,
+  introduction,
+  sections,
   image,
   date,
-  url
+  url,
 }: BlogArticleProps) {
   // Format date for schema
   const formattedDate = new Date(date).toISOString();
-  
+
   return (
     <>
       <MetaData
-        title={articleTitle}
+        date={date}
         description={introduction}
         image={image}
+        title={articleTitle}
         url={url}
-        date={date}
       />
-      
+
       <Script id="article-schema" type="application/ld+json">
         {`
           {
@@ -69,33 +71,31 @@ export default function BlogArticle({
           }
         `}
       </Script>
-      
+
       <article className="max-w-4xl mx-auto px-2 py-1 justify-center">
         {/* Rectangle de titre */}
         <div className="inline-block text-center justify-center p-1 rounded-xl">
           <h1 className={title()}>{articleTitle}</h1>
-          <div className={subtitle({ class: "mt-5" })}>
-            {introduction}
-          </div>
-          <time dateTime={date} className="text-gray-500 mt-4 block">
-            {new Date(date).toLocaleDateString('fr-FR', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
+          <div className={subtitle({ class: "mt-5" })}>{introduction}</div>
+          <time className="text-gray-500 mt-4 block" dateTime={date}>
+            {new Date(date).toLocaleDateString("fr-FR", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
             })}
           </time>
         </div>
-        
+
         {/* Image de l'article */}
         <figure className="mt-8 mb-12 relative h-[400px] w-full rounded-xl overflow-hidden">
           <img
-            src={image}
             alt={articleTitle}
             className="w-full h-full object-cover"
+            src={image}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         </figure>
-        
+
         <div className="mt-8 prose prose-lg">
           {sections.map((section, index) => (
             <section key={index}>
@@ -113,7 +113,7 @@ export default function BlogArticle({
         </div>
 
         <div className="mt-12 mb-12 text-center">
-          <Link href="/" className="inline-block">
+          <Link className="inline-block" href="/">
             <button className="px-8 py-4 text-lg font-semibold rounded-full bg-gradient-to-r from-[#FF1CF7] via-[#FF705B] to-[#5EA2EF] text-white hover:opacity-90 transition-opacity shadow-lg">
               Calculer mon salaire net
             </button>
@@ -122,4 +122,4 @@ export default function BlogArticle({
       </article>
     </>
   );
-} 
+}

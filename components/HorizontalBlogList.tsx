@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { useRef, useState } from 'react';
-import BlogCard from './BlogCard';
+import { useRef, useState } from "react";
+
+import BlogCard from "./BlogCard";
 
 interface HorizontalBlogListProps {
   articles: Array<{
@@ -12,29 +13,34 @@ interface HorizontalBlogListProps {
   }>;
 }
 
-export default function HorizontalBlogList({ articles }: HorizontalBlogListProps) {
+export default function HorizontalBlogList({
+  articles,
+}: HorizontalBlogListProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
 
   const checkScroll = () => {
     if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      const { scrollLeft, scrollWidth, clientWidth } =
+        scrollContainerRef.current;
+
       setShowLeftArrow(scrollLeft > 0);
       setShowRightArrow(scrollLeft < scrollWidth - clientWidth);
     }
   };
 
-  const scroll = (direction: 'left' | 'right') => {
+  const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
       const scrollAmount = 400; // Ajustez cette valeur selon vos besoins
-      const newScrollLeft = direction === 'left' 
-        ? scrollContainerRef.current.scrollLeft - scrollAmount
-        : scrollContainerRef.current.scrollLeft + scrollAmount;
-      
+      const newScrollLeft =
+        direction === "left"
+          ? scrollContainerRef.current.scrollLeft - scrollAmount
+          : scrollContainerRef.current.scrollLeft + scrollAmount;
+
       scrollContainerRef.current.scrollTo({
         left: newScrollLeft,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
@@ -44,22 +50,22 @@ export default function HorizontalBlogList({ articles }: HorizontalBlogListProps
   return (
     <div className="relative">
       {/* Conteneur de défilement */}
-      <div 
+      <div
         ref={scrollContainerRef}
-        onScroll={checkScroll}
-        className={`flex overflow-x-auto gap-4 pb-4 scrollbar-hide ${articles.length < 4 ? 'justify-center' : ''}`}
+        className={`flex overflow-x-auto gap-4 pb-4 scrollbar-hide ${articles.length < 4 ? "justify-center" : ""}`}
         style={{
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
         }}
+        onScroll={checkScroll}
       >
         {articles.map((article) => (
           <div key={article.id} className="flex-none w-[300px]">
             <BlogCard
-              id={article.id}
-              title={article.title}
               description={article.description}
+              id={article.id}
               image={article.image}
+              title={article.title}
             />
           </div>
         ))}
@@ -68,26 +74,48 @@ export default function HorizontalBlogList({ articles }: HorizontalBlogListProps
       {/* Boutons de navigation */}
       {shouldShowArrows && showLeftArrow && (
         <button
-          onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg z-10"
           aria-label="Défiler vers la gauche"
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg z-10"
+          onClick={() => scroll("left")}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15 19l-7-7 7-7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+            />
           </svg>
         </button>
       )}
       {shouldShowArrows && showRightArrow && (
         <button
-          onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg z-10"
           aria-label="Défiler vers la droite"
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg z-10"
+          onClick={() => scroll("right")}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 5l7 7-7 7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+            />
           </svg>
         </button>
       )}
     </div>
   );
-} 
+}

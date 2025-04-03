@@ -2,9 +2,9 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Link } from "@heroui/link";
 import clsx from "clsx";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Providers } from "./providers";
-import { Analytics } from "@vercel/analytics/react"
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -25,32 +25,32 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://brutonet.fr'),
+  metadataBase: new URL("https://brutonet.fr"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   openGraph: {
-    type: 'website',
-    locale: 'fr_FR',
-    url: 'https://brutonet.fr',
+    type: "website",
+    locale: "fr_FR",
+    url: "https://brutonet.fr",
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: '/og-image.png',
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: 'Calculateur de Salaire Brut en Net',
+        alt: "Calculateur de Salaire Brut en Net",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    creator: '@brutonet',
-    images: ['/og-image.png'],
+    creator: "@brutonet",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -58,9 +58,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   icons: {
@@ -68,16 +68,14 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   verification: {
-    google: 'REPLACE_WITH_ACTUAL_GOOGLE_SITE_VERIFICATION_CODE',
+    google: "REPLACE_WITH_ACTUAL_GOOGLE_SITE_VERIFICATION_CODE",
   },
-  category: 'finance',
-  classification: 'Calculatrice',
+  category: "finance",
+  classification: "Calculatrice",
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-  ],
+  themeColor: [{ media: "(prefers-color-scheme: light)", color: "white" }],
 };
 
 export default function RootLayout({
@@ -88,7 +86,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="fr">
       <head>
-        <link rel="icon" href="/icon.png" type="image/png" />
+        <link href="/icon.png" rel="icon" type="image/png" />
       </head>
       <body
         className={clsx(
@@ -104,9 +102,11 @@ export default function RootLayout({
             </main>
             <footer className="w-full flex items-center justify-center py-3">
               <div className="text-center text-sm text-default-500">
-                <p>© {new Date().getFullYear()} Brutonet. All rights reserved.</p>
+                <p>
+                  © {new Date().getFullYear()} Brutonet. All rights reserved.
+                </p>
                 <p className="mt-1">
-                  <Link href="/privacy-policy" className="hover:underline">
+                  <Link className="hover:underline" href="/privacy-policy">
                     Politique de Confidentialité
                   </Link>
                 </p>

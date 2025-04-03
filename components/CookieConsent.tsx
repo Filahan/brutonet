@@ -29,7 +29,7 @@ export const CookieConsent = () => {
           <h3 className="text-lg font-semibold mb-1">Cookies</h3>
           <p className="text-sm text-gray-600 dark:text-gray-300">
             Ce site utilise uniquement des cookies techniques nécessaires à son bon fonctionnement. 
-            Nous ne collectons aucune donnée personnelle. Pour plus d'informations, consultez notre{" "}
+            Nous ne collectons aucune donnée personnelle. Pour plus d&apos;informations, consultez notre{" "}
             <Link href="/privacy-policy" className="text-blue-600 hover:underline">
               politique de confidentialité
             </Link>.
@@ -37,10 +37,10 @@ export const CookieConsent = () => {
         </div>
         <div>
           <Button color="primary" onClick={acceptCookies}>
-            J'ai compris
+            J&apos;ai compris
           </Button>
         </div>
       </div>
     </div>
   );
-}; 
+};

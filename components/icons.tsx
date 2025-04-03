@@ -14,9 +14,7 @@ export const Logo: React.FC<IconSvgProps> = ({
     viewBox="0 0 32 32"
     width={size || width}
     {...props}
-  >
-
-  </svg>
+  />
 );
 
 export const DiscordIcon: React.FC<IconSvgProps> = ({

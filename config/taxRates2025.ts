@@ -1,4 +1,3 @@
-
 // Types for social contributions
 export type StatusType = "cadre" | "non-cadre";
 
@@ -22,14 +21,14 @@ export const SOCIAL_CONTRIBUTIONS: SocialContributions = {
   "non-cadre": {
     rate: 0.22, // 22% de charges sociales
     coefficient: 0.78, // Coefficient de conversion (1 - taux)
-  }
+  },
 };
 
 // Tranches d&apos;imposition sur le revenu 2025
 export const INCOME_TAX_BRACKETS = [
   { threshold: 0, rate: 0 }, // 0% jusqu&apos;à 11 497 €
   { threshold: 11498, rate: 0.11 }, // 11% de 11 498 € à 29 315 €
-  { threshold: 29316, rate: 0.30 }, // 30% de 29 316 € à 83 823 €
+  { threshold: 29316, rate: 0.3 }, // 30% de 29 316 € à 83 823 €
   { threshold: 83824, rate: 0.41 }, // 41% de 83 824 € à 180 294 €
   { threshold: 180295, rate: 0.45 }, // 45% au-delà de 180 294 €
 ];
@@ -42,4 +41,4 @@ export const DEFAULT_VALUES = {
 };
 
 // Nombre de mois pour la conversion annuel/mensuel
-export const MONTHS_PER_YEAR = 12; 
+export const MONTHS_PER_YEAR = 12;
