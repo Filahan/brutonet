@@ -612,8 +612,6 @@ export default function SalaryCalculator({
             <div className="space-y-4">
               <div>
                 <Input
-                                size="sm"
-
                   className="w-full font-bold"
                   endContent={
                     <div className="pointer-events-none flex items-center">
@@ -634,8 +632,7 @@ export default function SalaryCalculator({
 
               <div>
                 <Input
-                  size="sm"
-
+                
                   className="w-full font-bold"
                   endContent={
                     <div className="pointer-events-none flex items-center">
@@ -656,7 +653,6 @@ export default function SalaryCalculator({
 
               <div>
                 <Input
-                size="sm"
                   className="w-full font-bold"
                   color="success"
                   endContent={
