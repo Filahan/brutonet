@@ -32,7 +32,7 @@ export default function Home() {
         `}
       </Script>
 
-      <div className="relative w-full max-w-xl h-[200px] md:h-[250px] rounded-2xl bg-gray-100 mb-5">
+      <div className="relative w-full max-w-2xl h-[200px] md:h-[250px] rounded-2xl bg-gray-100 mb-5">
         <Image
           fill
           priority
@@ -42,12 +42,12 @@ export default function Home() {
         />
       </div>
 
-      <div className="w-full max-w-xl mt-0">
+      <div className="w-full max-w-2xl mt-0">
         <SalaryCalculator onStatusChange={setStatus} />
       </div>
 
       {/* Blog Section */}
-      <div className="w-full max-w-6xl mt-20 px-4">
+      <div className="w-full max-w-2xl mt-20 px-4">
         <HorizontalBlogList articles={blogData.articles} />
       </div>
     </section>
