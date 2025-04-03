@@ -604,7 +604,7 @@ export default function SalaryCalculator({
 
   return (
     <div className="w-full px-4 sm:px-0">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ring-1 ring-gray-300 rounded-2xl p-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-6 ring-1 ring-gray-300 rounded-2xl p-4">
         {/* First Column - Monthly values */}
         <div className="space-y-4">
           <div>
