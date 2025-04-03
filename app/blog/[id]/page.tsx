@@ -5,11 +5,9 @@ import * as React from 'react';
 import { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 
-type Props = {
-  params: { id: string }
-}
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+
+export async function generateMetadata({ params }: any): Promise<Metadata> {
   const article = blogData.articles.find((article) => article.id === params.id);
   
   if (!article) {
