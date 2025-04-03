@@ -39,13 +39,15 @@ export default function HorizontalBlogList({ articles }: HorizontalBlogListProps
     }
   };
 
+  const shouldShowArrows = articles.length >= 4;
+
   return (
     <div className="relative">
       {/* Conteneur de défilement */}
       <div 
         ref={scrollContainerRef}
         onScroll={checkScroll}
-        className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide"
+        className={`flex overflow-x-auto gap-4 pb-4 scrollbar-hide ${articles.length < 4 ? 'justify-center' : ''}`}
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
@@ -64,7 +66,7 @@ export default function HorizontalBlogList({ articles }: HorizontalBlogListProps
       </div>
 
       {/* Boutons de navigation */}
-      {showLeftArrow && (
+      {shouldShowArrows && showLeftArrow && (
         <button
           onClick={() => scroll('left')}
           className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg z-10"
@@ -75,7 +77,7 @@ export default function HorizontalBlogList({ articles }: HorizontalBlogListProps
           </svg>
         </button>
       )}
-      {showRightArrow && (
+      {shouldShowArrows && showRightArrow && (
         <button
           onClick={() => scroll('right')}
           className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg z-10"
