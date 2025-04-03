@@ -4,9 +4,9 @@ import blogData from '@/data/blog.json';
 
 // Cette fonction génère les paramètres statiques pour chaque article
 export async function generateStaticParams() {
-  return blogData.articles.map((article) => ({
+  return Promise.resolve(blogData.articles.map((article) => ({
     id: article.id,
-  }));
+  })));
 }
 
 type Props = {
