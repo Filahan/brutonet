@@ -2,12 +2,19 @@ import { notFound } from 'next/navigation';
 import BlogArticle from '@/components/BlogArticle';
 import blogData from '@/data/blog.json';
 
+// Cette fonction génère les paramètres statiques pour chaque article
+export async function generateStaticParams() {
+  return blogData.articles.map((article) => ({
+    id: article.id,
+  }));
+}
+
 type Props = {
   params: { id: string }
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function BlogPage(props: Props) {
+export default function BlogPage(props: Props) {
   const article = blogData.articles.find((article) => article.id === props.params.id);
 
   if (!article) {
