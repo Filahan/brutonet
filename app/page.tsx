@@ -2,10 +2,11 @@
 
 import { title, subtitle } from "@/components/primitives";
 import SalaryCalculator from "@/components/SalaryCalculator";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HorizontalBlogList from "@/components/HorizontalBlogList";
 import blogData from "@/data/blog.json";
 import Image from "next/image";
+import Script from "next/script";
 
 export default function Home() {
   const [status, setStatus] = useState<"cadre" | "non-cadre">("cadre");
@@ -13,6 +14,24 @@ export default function Home() {
 
   return (
     <section className="flex flex-col items-center justify-center gap-2 md:mb-1">
+      <Script id="salary-calculator-schema" type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Calculateur de Salaire Brut en Net",
+            "url": "https://brutonet.fr",
+            "description": "Calculez instantanément votre salaire net à partir du brut. Notre calculateur de salaire prend en compte les charges sociales et les impôts sur le revenu.",
+            "applicationCategory": "FinanceApplication",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        `}
+      </Script>
+      
       <div className="relative w-full max-w-xl h-[200px] md:h-[250px] rounded-2xl bg-gray-100 mb-5">
         <Image
           src="/blog/salary-calculator-banner.png"

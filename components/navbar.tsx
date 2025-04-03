@@ -14,6 +14,7 @@ import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
+import Script from "next/script";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -50,6 +51,22 @@ export const Navbar = () => {
 
   return (
     <HeroUINavbar maxWidth="xl" position="sticky">
+      <Script id="organization-schema" type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Brutonet",
+            "url": "https://brutonet.fr",
+            "logo": "https://brutonet.fr/logo.png",
+            "sameAs": [
+              "${siteConfig.links.twitter}",
+              "${siteConfig.links.github}"
+            ]
+          }
+        `}
+      </Script>
+      
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">

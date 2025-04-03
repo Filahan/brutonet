@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   verification: {
-    google: 'google-site-verification-code', // À remplacer par votre code de vérification Google
+    google: 'REPLACE_WITH_ACTUAL_GOOGLE_SITE_VERIFICATION_CODE',
   },
   category: 'finance',
   classification: 'Calculatrice',
@@ -86,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning lang="fr">
       <head>
         <link rel="icon" href="/icon.png" type="image/png" />
       </head>

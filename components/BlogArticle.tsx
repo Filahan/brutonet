@@ -1,6 +1,7 @@
 import { title, subtitle } from "@/components/primitives";
 import MetaData from "./MetaData";
 import Link from "next/link";
+import Script from "next/script";
 
 interface Section {
   title: string;
@@ -25,6 +26,9 @@ export default function BlogArticle({
   date,
   url
 }: BlogArticleProps) {
+  // Format date for schema
+  const formattedDate = new Date(date).toISOString();
+  
   return (
     <>
       <MetaData
@@ -34,6 +38,37 @@ export default function BlogArticle({
         url={url}
         date={date}
       />
+      
+      <Script id="article-schema" type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "${articleTitle}",
+            "image": "${image}",
+            "datePublished": "${formattedDate}",
+            "dateModified": "${formattedDate}",
+            "author": {
+              "@type": "Organization",
+              "name": "Brutonet",
+              "url": "https://brutonet.fr"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Brutonet",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://brutonet.fr/logo.png"
+              }
+            },
+            "description": "${introduction}",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://brutonet.fr${url}"
+            }
+          }
+        `}
+      </Script>
       
       <article className="max-w-4xl mx-auto px-2 py-1 justify-center">
         {/* Rectangle de titre */}
