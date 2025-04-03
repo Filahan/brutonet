@@ -4,6 +4,7 @@ import blogData from '@/data/blog.json';
 
 type BlogPageProps = {
   params: { id: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 export default async function BlogPage({ params }: BlogPageProps) {
