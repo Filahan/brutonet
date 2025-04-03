@@ -612,7 +612,7 @@ export default function SalaryCalculator({
             <div className="space-y-4">
               <div>
                 <Input
-                  className="w-full"
+                  className="w-full font-bold"
                   endContent={
                     <div className="pointer-events-none flex items-center">
                       <span className="text-default-400 text-small">€</span>
@@ -632,7 +632,7 @@ export default function SalaryCalculator({
 
               <div>
                 <Input
-                  className="w-full"
+                  className="w-full font-bold"
                   endContent={
                     <div className="pointer-events-none flex items-center">
                       <span className="text-default-400 text-small">€</span>
@@ -652,7 +652,7 @@ export default function SalaryCalculator({
 
               <div>
                 <Input
-                  className="w-full"
+                  className="w-full font-bold"
                   color="success"
                   endContent={
                     <div className="pointer-events-none flex items-center">
@@ -679,7 +679,7 @@ export default function SalaryCalculator({
             <div className="space-y-4">
               <div>
                 <Input
-                  className="w-full"
+                  className="w-full font-bold"
                   endContent={
                     <div className="pointer-events-none flex items-center">
                       <span className="text-default-400 text-small">€</span>
@@ -697,7 +697,7 @@ export default function SalaryCalculator({
 
               <div>
                 <Input
-                  className="w-full"
+                  className="w-full font-bold"
                   endContent={
                     <div className="pointer-events-none flex items-center">
                       <span className="text-default-400 text-small">€</span>
@@ -717,7 +717,7 @@ export default function SalaryCalculator({
 
               <div>
                 <Input
-                  className="w-full"
+                  className="w-full font-bold"
                   color="success"
                   endContent={
                     <div className="pointer-events-none flex items-center">
