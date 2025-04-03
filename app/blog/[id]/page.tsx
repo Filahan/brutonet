@@ -3,13 +3,12 @@ import BlogArticle from '@/components/BlogArticle';
 import blogData from '@/data/blog.json';
 
 type BlogPageProps = {
-  params: Promise<{ id: string }>;
+  params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
 export default async function BlogPage({ params, searchParams }: BlogPageProps) {
-  const resolvedParams = await params;
-  const article = blogData.articles.find((article) => article.id === resolvedParams.id);
+  const article = blogData.articles.find((article) => article.id === params.id);
 
   if (!article) {
     notFound();
