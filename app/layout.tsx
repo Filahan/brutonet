@@ -105,6 +105,11 @@ export default function RootLayout({
             <footer className="w-full flex items-center justify-center py-3">
               <div className="text-center text-sm text-default-500">
                 <p>© {new Date().getFullYear()} Brutonet. All rights reserved.</p>
+                <p className="mt-1">
+                  <Link href="/privacy-policy" className="hover:underline">
+                    Politique de Confidentialité
+                  </Link>
+                </p>
               </div>
             </footer>
           </div>

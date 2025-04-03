@@ -14,6 +14,16 @@ This is a template for creating applications using Next.js 14 (app directory) an
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
 
+## GDPR Compliance
+
+This application is GDPR compliant:
+
+- No personal data is collected from users
+- We use only necessary technical cookies for the website to function properly
+- A privacy policy page is available at `/privacy-policy`
+- A minimal cookie consent banner informs users about our cookie usage
+- All calculations are performed locally in the browser, with no data sent to servers
+
 ## How to Use
 
 ### Use the template with create-next-app
