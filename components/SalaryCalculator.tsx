@@ -562,7 +562,9 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
                       <span className="text-default-400 text-small">€</span>
                     </div>
                   }
+                  color="success"
                   className="w-full"
+                 
                 />
               </div>
             </div>
@@ -619,6 +621,7 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
                     </div>
                   }
                   className="w-full"
+                  color="success"
                 />
               </div>
             </div>
