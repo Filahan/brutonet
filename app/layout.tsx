@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.png",
     apple: "/apple-touch-icon.png",
   },
   verification: {
@@ -87,7 +87,9 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <head />
+      <head>
+        <link rel="icon" href="/icon.png" type="image/png" />
+      </head>
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",

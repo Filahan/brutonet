@@ -78,13 +78,11 @@ export const Navbar = () => {
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
-          <ThemeSwitch />
         
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
         
-        <ThemeSwitch />
       </NavbarContent>
 
       <NavbarMenu>
