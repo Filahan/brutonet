@@ -6,9 +6,10 @@ interface BlogPageProps {
   params: {
     id: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export default function BlogPage({ params }: BlogPageProps) {
+export default function BlogPage({ params, searchParams }: BlogPageProps) {
   const article = blogData.articles.find((article) => article.id === params.id);
 
   if (!article) {
@@ -19,9 +20,9 @@ export default function BlogPage({ params }: BlogPageProps) {
     <BlogArticle
       title={article.title}
       introduction={article.content.introduction}
-      sections={article.content.sections}
-      image={article.image}
-      date={article.date}
+      sections={article.content.sections || []}
+      image={article.image || ''}
+      date={article.date || ''}
       url={`/blog/${article.id}`}
     />
   );
