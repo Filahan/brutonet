@@ -166,10 +166,11 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
     
     const value = parseFloat(inputValue);
     if (!isNaN(value)) {
-      setMonthlySalaryGross(value);
-      // Don&apos;t recalculate the monthly gross value when directly editing it
-      const updatedValues = { ...calculateAllExcept("monthlyGross", value) };
-      updateValues(updatedValues);
+      calculateFromMonthlyGross(value, true);
+      
+      // Apply suggested tax rate automatically
+      const suggestedRate = getSuggestedTaxRate(value * MONTHS_PER_YEAR);
+      setTaxRate(suggestedRate);
     }
   };
 
@@ -183,10 +184,12 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
     
     const value = parseFloat(inputValue);
     if (!isNaN(value)) {
-      setMonthlyNetBeforeTax(value);
-      // Don&apos;t recalculate the monthly net before tax value when directly editing it
-      const updatedValues = { ...calculateAllExcept("monthlyNetBeforeTax", value) };
-      updateValues(updatedValues);
+      calculateFromMonthlyNetBeforeTax(value, true);
+      
+      // Apply suggested tax rate automatically
+      const annualNetBeforeTax = value * MONTHS_PER_YEAR;
+      const suggestedRate = (calculateProgressiveTax(annualNetBeforeTax) / annualNetBeforeTax) * 100;
+      setTaxRate(suggestedRate);
     }
   };
 
@@ -200,10 +203,22 @@ export default function SalaryCalculator({ onStatusChange }: SalaryCalculatorPro
     
     const value = parseFloat(inputValue);
     if (!isNaN(value)) {
-      setMonthlySalaryNet(value);
-      // Don&apos;t recalculate the monthly net value when directly editing it
-      const updatedValues = { ...calculateAllExcept("monthlyNet", value) };
-      updateValues(updatedValues);
+      calculateFromMonthlyNet(value, true);
+      
+      // Apply suggested tax rate using the same approach as annual net
+      let netBeforeTax = value / (1 - taxRate / 100);
+      let annualNetBeforeTax = netBeforeTax * MONTHS_PER_YEAR;
+      
+      // Refine our guess with a few iterations
+      for (let i = 0; i < 5; i++) {
+        const annualTax = calculateProgressiveTax(annualNetBeforeTax);
+        const monthlyTax = annualTax / MONTHS_PER_YEAR;
+        netBeforeTax = value + monthlyTax;
+        annualNetBeforeTax = netBeforeTax * MONTHS_PER_YEAR;
+      }
+      
+      const suggestedRate = (calculateProgressiveTax(annualNetBeforeTax) / annualNetBeforeTax) * 100;
+      setTaxRate(suggestedRate);
     }
   };
 
