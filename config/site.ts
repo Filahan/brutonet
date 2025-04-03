@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: "Calculateur de Salaire Brut en Net | Brutonet",
   description:
-    "Calculez instantanément votre salaire net à partir du brut. Notre calculateur de salaire prend en compte les charges sociales (25% cadre, 22% non-cadre), les impôts sur le revenu par tranche, et le prélèvement à la source pour vous donner une estimation précise de votre rémunération nette. Simple, rapide et fiable.",
+    "Calculez instantanément votre salaire net à partir du brut. Notre calculateur de salaire prend en compte les charges sociales, les impôts sur le revenu par tranche, et le prélèvement à la source pour vous donner une estimation précise de votre rémunération nette. Simple et rapide.",
   keywords: [
     "calculateur salaire",
     "salaire brut en net",
