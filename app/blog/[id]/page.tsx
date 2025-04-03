@@ -1,21 +1,16 @@
 import { notFound } from 'next/navigation';
 import BlogArticle from '@/components/BlogArticle';
 import blogData from '@/data/blog.json';
+import * as React from 'react'
 
-type BlogPageProps = {
-  params: {     
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-} 
-}
 
-export default async function BlogPage({ params }: BlogPageProps) {
-  const article = blogData.articles.find((article) => article.id === params.id);
+export default async function Page({ params }:any) {
+ const { id } = await params
+
+  const article = blogData.articles.find((article) => article.id === id);
 
   if (!article) {
-    notFound();
+    notFound(); // no return needed, Next.js will handle
   }
 
   return (
@@ -28,4 +23,4 @@ export default async function BlogPage({ params }: BlogPageProps) {
       url={`/blog/${article.id}`}
     />
   );
-} 
+}
