@@ -604,12 +604,12 @@ export default function SalaryCalculator({
 
   return (
     <div className="w-full">
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-6 ring-1 ring-gray-300 rounded-2xl p-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-1 md:gap-6 ring-1 ring-gray-300 rounded-2xl p-2 md:p-4">
         {/* First Column - Monthly values */}
-        <div className="space-y-4">
+        <div className="space-y-2 md:space-y-4">
           <div>
-            <h2 className="text-lg font-medium mb-4">Mensuel</h2>
-            <div className="space-y-4">
+            <h2 className="text-lg font-medium mb-2 md:mb-4">Mensuel</h2>
+            <div className="space-y-2 md:space-y-4">
               <div>
                 <Input
                   className="w-full font-bold"
@@ -674,10 +674,10 @@ export default function SalaryCalculator({
         </div>
 
         {/* Second Column - Annual values */}
-        <div className="space-y-4">
+        <div className="space-y-2 md:space-y-4">
           <div>
-            <h2 className="text-lg font-medium mb-4">Annuel</h2>
-            <div className="space-y-4">
+            <h2 className="text-lg font-medium mb-2 md:mb-4">Annuel</h2>
+            <div className="space-y-2 md:space-y-4">
               <div>
                 <Input
                   className="w-full font-bold"
@@ -740,7 +740,7 @@ export default function SalaryCalculator({
       </div>
 
       {/* Parameters Row */}
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="mt-4 md:mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
         {/* Tax Rate Slider */}
         <div className="flex flex-col">
           <label className="block text-sm font-medium mb-4" htmlFor="taxRate">
