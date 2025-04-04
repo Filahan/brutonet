@@ -33,10 +33,10 @@ export const siteConfig = {
     // },
   ],
   navMenuItems: [
-    {
-      label: "À propos",
-      href: "/about",
-    },
+    // {
+    //   label: "À propos",
+    //   href: "/about",
+    // },
   ],
   links: {
     github: "https://github.com/brutonet",
