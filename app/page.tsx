@@ -42,7 +42,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="w-full max-w-2xl mt-0">
+      <div className="w-full max-w-2xl">
         <SalaryCalculator onStatusChange={setStatus} />
       </div>
 
