@@ -604,7 +604,7 @@ export default function SalaryCalculator({
 
   return (
     <div className="w-full">
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-1 md:gap-6 ring-1 ring-gray-300 rounded-2xl p-2 md:p-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-1 md:gap-6 ring-1 ring-gray-300 rounded-2xl p-3 md:p-4">
         {/* First Column - Monthly values */}
         <div className="space-y-2 md:space-y-4">
           <div>
@@ -619,6 +619,9 @@ export default function SalaryCalculator({
                     </div>
                   }
                   label="Mensuel Brut"
+                  classNames={{
+                    label: "text-xs md:text-sm"
+                  }}
                   placeholder="Saisir le montant brut"
                   type="number"
                   value={
@@ -632,7 +635,6 @@ export default function SalaryCalculator({
 
               <div>
                 <Input
-                
                   className="w-full font-bold"
                   endContent={
                     <div className="pointer-events-none flex items-center">
@@ -640,6 +642,9 @@ export default function SalaryCalculator({
                     </div>
                   }
                   label="Mensuel Net Avant Impôt"
+                  classNames={{
+                    label: "text-xs md:text-sm"
+                  }}
                   placeholder="Saisir le montant"
                   type="number"
                   value={
@@ -661,6 +666,9 @@ export default function SalaryCalculator({
                     </div>
                   }
                   label="Mensuel Net Après Impôt"
+                  classNames={{
+                    label: "text-xs md:text-sm"
+                  }}
                   placeholder="Saisir le montant net"
                   type="number"
                   value={
@@ -687,6 +695,9 @@ export default function SalaryCalculator({
                     </div>
                   }
                   label="Annuel Brut"
+                  classNames={{
+                    label: "text-xs md:text-sm"
+                  }}
                   placeholder="Saisir le montant brut"
                   type="number"
                   value={
@@ -705,6 +716,9 @@ export default function SalaryCalculator({
                     </div>
                   }
                   label="Annuel Net Avant Impôt"
+                  classNames={{
+                    label: "text-xs md:text-sm"
+                  }}
                   placeholder="Saisir le montant"
                   type="number"
                   value={
@@ -726,6 +740,9 @@ export default function SalaryCalculator({
                     </div>
                   }
                   label="Annuel Net Après Impôt"
+                  classNames={{
+                    label: "text-xs md:text-sm"
+                  }}
                   placeholder="Saisir le montant"
                   type="number"
                   value={
