@@ -658,6 +658,7 @@ export default function SalaryCalculator({
 
               <div>
                 <Input
+                
                   className="w-full"
                   color="success"
                   endContent={
