@@ -139,6 +139,7 @@ export default function RootLayout({
             </footer>
           </div>
         </Providers>
+        <SpeedInsights />
         <Analytics />
       </body>
     </html>
