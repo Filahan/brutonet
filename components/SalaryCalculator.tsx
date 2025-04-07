@@ -777,7 +777,7 @@ export default function SalaryCalculator({
                 id="status"
               >
                 <div className="flex items-center gap-3">
-                  <span className="font-medium text-gray-900 dark:text-white">{status === "cadre" ? "Cadre" : "Non-cadre"}</span>
+                  <span className="font-medium text-gray-900 text-sm dark:text-white">{status === "cadre" ? "Cadre" : "Non-cadre"}</span>
                   <span className="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full font-medium">
                     {(SOCIAL_CONTRIBUTIONS[status].rate * 100).toFixed(1)}%
                   </span>
