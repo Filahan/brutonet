@@ -13,7 +13,7 @@ export default function Home() {
   const rate = status === "cadre" ? "25%" : "22%";
 
   return (
-    <section className="flex flex-col items-center justify-center gap-2 md:mb-1">
+    <section className="flex flex-col items-center justify-center md:mb-1">
       <Script id="salary-calculator-schema" type="application/ld+json">
         {`
           {

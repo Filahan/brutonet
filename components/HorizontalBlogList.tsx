@@ -52,7 +52,7 @@ export default function HorizontalBlogList({
       {/* Conteneur de défilement */}
       <div
         ref={scrollContainerRef}
-        className={`flex overflow-x-auto gap-4 pb-4 scrollbar-hide ${articles.length < 4 ? "justify-center" : ""}`}
+        className={`flex overflow-x-auto gap-4 pb-4 scrollbar-hide`}
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
