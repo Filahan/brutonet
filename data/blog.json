@@ -51,6 +51,54 @@
           }
         ]
       }
+    },
+    {
+      "id": "smic-2025",
+      "title": "Salaire Minimum en France : SMIC 2025",
+      "description": "Tout savoir sur le SMIC en 2025 : montant, conditions d'application, et impact sur votre rémunération.",
+      "image": "/blog/smic-2025.png",
+      "date": "2025-01-01",
+      "content": {
+        "introduction": "Le SMIC (Salaire Minimum Interprofessionnel de Croissance) est le salaire minimum légal en France. En 2025, il continue d'évoluer pour garantir un niveau de vie décent aux salariés.",
+        "sections": [
+          {
+            "title": "Le SMIC en 2025",
+            "content": "En 2025, le SMIC horaire brut s'élève à 11,88 €, ce qui représente un salaire brut mensuel de 1 801,80 € pour un temps plein (35 heures par semaine).",
+            "list": [
+              "SMIC horaire brut : 11,88 €",
+              "SMIC mensuel brut (35h) : 1 801,80 €",
+              "SMIC mensuel net (35h) : environ 1 426,42 €"
+            ]
+          },
+          {
+            "title": "Qui est concerné ?",
+            "content": "Le SMIC s'applique à tous les salariés, quel que soit leur âge ou leur qualification, à l'exception de certains contrats spécifiques comme les stages ou les contrats d'apprentissage.",
+            "list": [
+              "Tous les salariés en CDI ou CDD",
+              "Les salariés à temps plein ou à temps partiel",
+              "Les jeunes travailleurs (sous conditions)"
+            ]
+          },
+          {
+            "title": "Revalorisation automatique",
+            "content": "Le SMIC est revalorisé automatiquement chaque année au 1er janvier en fonction de l'évolution des prix à la consommation. Une revalorisation exceptionnelle peut également être décidée par le gouvernement si l'inflation dépasse 2%.",
+            "list": [
+              "Revalorisation annuelle au 1er janvier",
+              "Prise en compte de l'inflation",
+              "Possibilité de revalorisation exceptionnelle"
+            ]
+          },
+          {
+            "title": "Impact sur les autres salaires",
+            "content": "L'augmentation du SMIC peut avoir un effet d'entraînement sur l'ensemble des salaires, notamment dans les grilles de classification des conventions collectives.",
+            "list": [
+              "Effet d'entraînement sur les grilles salariales",
+              "Impact sur les négociations salariales",
+              "Influence sur les politiques de rémunération des entreprises"
+            ]
+          }
+        ]
+      }
     }
   ]
 } 
