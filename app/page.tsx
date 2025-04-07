@@ -61,7 +61,7 @@ export default function Home() {
         <div className="w-full max-w-2xl text-center mb-8">
           <h1 className="text-3xl font-bold mb-4">Calculateur Salaire Brut en Net 2025</h1>
           <p className="text-lg text-gray-600 mb-6">
-            Calculez instantanément votre salaire brut en net 2025. Simulateur gratuit et précis avec prélèvement à la source, charges sociales et impôts.
+            Calculez instantanément votre salaire brut en net 2025. Simulateur gratuit avec prélèvement à la source, charges sociales et impôts.
           </p>
           <div className="text-sm text-gray-500 mb-1">
             <p>✓ Calcul du salaire brut en net</p>
