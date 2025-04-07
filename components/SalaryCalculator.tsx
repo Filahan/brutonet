@@ -811,12 +811,21 @@ export default function SalaryCalculator({
 
       {/* Tax Brackets Table */}
       <div className="mt-8 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl">
-        <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Table des tranches d'imposition</h3>
-        <Table aria-label="Table des tranches d'imposition" className="border-collapse">
+        <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Table des tranches d&apos;imposition</h3>
+        <Table 
+          aria-label="Table des tranches d&apos;imposition"
+          className="border-collapse"
+        >
           <TableHeader>
-            <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold">Tranche</TableColumn>
-            <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold">Taux d'imposition</TableColumn>
-            <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold">Montant imposable</TableColumn>
+            <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold">
+              Tranche
+            </TableColumn>
+            <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold">
+              Taux d&apos;imposition
+            </TableColumn>
+            <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold">
+              Montant imposable
+            </TableColumn>
           </TableHeader>
           <TableBody>
             {INCOME_TAX_BRACKETS.map((bracket, index) => {
