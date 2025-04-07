@@ -604,11 +604,11 @@ export default function SalaryCalculator({
 
   return (
     <div className="w-full max-w-5xl mx-auto">
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-1 md:gap-8 bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-8 bg-white">
         {/* First Column - Monthly values */}
         <div className="space-y-4 md:space-y-6">
           <div>
-            <h2 className="text-xl font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white">Mensuel</h2>
+            <h2 className="text-lg font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white">Mensuel</h2>
             <div className="space-y-4 md:space-y-6">
               <div className="transform transition-all duration-200 hover:scale-[1.02]">
                 <Input
@@ -674,7 +674,7 @@ export default function SalaryCalculator({
         {/* Second Column - Annual values */}
         <div className="space-y-4 md:space-y-6">
           <div>
-            <h2 className="text-xl font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white">Annuel</h2>
+            <h2 className="text-lg font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white">Annuel</h2>
             <div className="space-y-4 md:space-y-6">
               <div className="transform transition-all duration-200 hover:scale-[1.02]">
                 <Input
@@ -811,7 +811,7 @@ export default function SalaryCalculator({
 
       {/* Tax Brackets Table */}
       <div className="mt-8 bg-white dark:bg-gray-800 p-3 md:p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl">
-        <h3 className="text-xl font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white">Table des tranches d&apos;imposition</h3>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Table des tranches d&apos;imposition</h3>
         <div className="overflow-x-auto">
           <Table 
             aria-label="Table des tranches d&apos;imposition"
@@ -826,13 +826,13 @@ export default function SalaryCalculator({
             }}
           >
             <TableHeader>
-              <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold w-1/3">
+              <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-xs font-semibold w-1/3">
                 Tranche
               </TableColumn>
-              <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold w-1/3">
+              <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-xs font-semibold w-1/3">
                 Taux d&apos;imposition
               </TableColumn>
-              <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold w-1/3">
+              <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-xs font-semibold w-1/3">
                 Montant imposable
               </TableColumn>
             </TableHeader>
@@ -845,9 +845,9 @@ export default function SalaryCalculator({
 
                 return (
                   <TableRow key={index} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
-                    <TableCell className="font-medium text-gray-900 dark:text-white w-1/3">{index + 1}</TableCell>
+                    <TableCell className="font-medium text-xs  text-gray-900 dark:text-white w-1/3">{index + 1}</TableCell>
                     <TableCell className="font-medium text-primary w-1/3">{(bracket.rate * 100).toFixed(0)}%</TableCell>
-                    <TableCell className="text-gray-600 dark:text-gray-400 w-1/3 text-sm md:text-base">{range}</TableCell>
+                    <TableCell className="text-gray-600 text-sm  dark:text-gray-400 w-1/3">{range}</TableCell>
                   </TableRow>
                 );
               })}
