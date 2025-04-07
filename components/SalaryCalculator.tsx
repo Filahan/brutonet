@@ -810,40 +810,50 @@ export default function SalaryCalculator({
       </div>
 
       {/* Tax Brackets Table */}
-      <div className="mt-8 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl">
-        <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Table des tranches d&apos;imposition</h3>
-        <Table 
-          aria-label="Table des tranches d&apos;imposition"
-          className="border-collapse"
-        >
-          <TableHeader>
-            <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold">
-              Tranche
-            </TableColumn>
-            <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold">
-              Taux d&apos;imposition
-            </TableColumn>
-            <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold">
-              Montant imposable
-            </TableColumn>
-          </TableHeader>
-          <TableBody>
-            {INCOME_TAX_BRACKETS.map((bracket, index) => {
-              const nextBracket = INCOME_TAX_BRACKETS[index + 1];
-              const range = nextBracket
-                ? `${bracket.threshold.toLocaleString("fr-FR")} € - ${(nextBracket.threshold - 1).toLocaleString("fr-FR")} €`
-                : `Plus de ${bracket.threshold.toLocaleString("fr-FR")} €`;
+      <div className="mt-8 bg-white dark:bg-gray-800 p-3 md:p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl">
+        <h3 className="text-xl font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white">Table des tranches d&apos;imposition</h3>
+        <div className="overflow-x-auto">
+          <Table 
+            aria-label="Table des tranches d&apos;imposition"
+            className="w-full border-collapse"
+            classNames={{
+              wrapper: "w-full",
+              thead: "w-full",
+              tbody: "w-full",
+              tr: "w-full",
+              th: "w-full",
+              td: "w-full"
+            }}
+          >
+            <TableHeader>
+              <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold w-1/3">
+                Tranche
+              </TableColumn>
+              <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold w-1/3">
+                Taux d&apos;imposition
+              </TableColumn>
+              <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold w-1/3">
+                Montant imposable
+              </TableColumn>
+            </TableHeader>
+            <TableBody>
+              {INCOME_TAX_BRACKETS.map((bracket, index) => {
+                const nextBracket = INCOME_TAX_BRACKETS[index + 1];
+                const range = nextBracket
+                  ? `${bracket.threshold.toLocaleString("fr-FR")} € - ${(nextBracket.threshold - 1).toLocaleString("fr-FR")} €`
+                  : `Plus de ${bracket.threshold.toLocaleString("fr-FR")} €`;
 
-              return (
-                <TableRow key={index} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
-                  <TableCell className="font-medium text-gray-900 dark:text-white">{index + 1}</TableCell>
-                  <TableCell className="font-medium text-primary">{(bracket.rate * 100).toFixed(0)}%</TableCell>
-                  <TableCell className="text-gray-600 dark:text-gray-400">{range}</TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
+                return (
+                  <TableRow key={index} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                    <TableCell className="font-medium text-gray-900 dark:text-white w-1/3">{index + 1}</TableCell>
+                    <TableCell className="font-medium text-primary w-1/3">{(bracket.rate * 100).toFixed(0)}%</TableCell>
+                    <TableCell className="text-gray-600 dark:text-gray-400 w-1/3 text-sm md:text-base">{range}</TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </div>
       </div>
     </div>
   );
