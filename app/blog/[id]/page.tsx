@@ -14,15 +14,20 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     };
   }
 
+  const canonicalUrl = `https://brutonet.fr/blog/${article.id}`;
+
   return {
     title: article.title,
     description: article.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: article.title,
       description: article.description,
       type: "article",
       publishedTime: article.date,
-      url: `https://brutonet.fr/blog/${article.id}`,
+      url: canonicalUrl,
       images: [
         {
           url: article.image,

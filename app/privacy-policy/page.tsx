@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Politique de Confidentialité | Brutonet",
   description:
     "Notre politique de confidentialité expliquant que nous ne collectons aucune donnée personnelle.",
+  alternates: {
+    canonical: "https://brutonet.fr/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicy() {
