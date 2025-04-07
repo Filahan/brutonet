@@ -603,78 +603,67 @@ export default function SalaryCalculator({
   };
 
   return (
-    <div className="w-full">
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-1 md:gap-6 ring-1 ring-gray-300 rounded-2xl p-1 md:p-4">
+    <div className="w-full max-w-5xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-4 md:p-6 transition-all duration-200 hover:shadow-xl">
         {/* First Column - Monthly values */}
-        <div className="space-y-1 md:space-y-4">
+        <div className="space-y-4 md:space-y-6">
           <div>
-            <h2 className="text-lg font-medium mb-2 md:mb-4">Mensuel</h2>
-            <div className="space-y-2 md:space-y-4">
-              <div>
+            <h2 className="text-xl font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white">Mensuel</h2>
+            <div className="space-y-4 md:space-y-6">
+              <div className="transform transition-all duration-200 hover:scale-[1.02]">
                 <Input
-                  className="w-full"
+                  className="w-full bg-gray-50 dark:bg-gray-700"
                   endContent={
                     <div className="pointer-events-none flex items-center">
-                      <span className="text-default-400 text-small">€</span>
+                      <span className="text-default-400 text-small font-medium">€</span>
                     </div>
                   }
                   label="Mensuel Brut"
                   classNames={{
-                    label: "text-xs md:text-sm"
+                    label: "text-sm font-medium text-gray-700 dark:text-gray-300"
                   }}
                   placeholder="Saisir le montant brut"
                   type="number"
-                  value={
-                    monthlySalaryGross === 0
-                      ? ""
-                      : monthlySalaryGross.toString()
-                  }
+                  value={monthlySalaryGross === 0 ? "" : monthlySalaryGross.toString()}
                   onChange={handleMonthlyGrossChange}
                 />
               </div>
 
-              <div>
+              <div className="transform transition-all duration-200 hover:scale-[1.02]">
                 <Input
-                  className="w-full"
+                  className="w-full bg-gray-50 dark:bg-gray-700"
                   endContent={
                     <div className="pointer-events-none flex items-center">
-                      <span className="text-default-400 text-small">€</span>
+                      <span className="text-default-400 text-small font-medium">€</span>
                     </div>
                   }
                   label="Mensuel Net Avant Impôt"
                   classNames={{
-                    label: "text-xs md:text-sm"
+                    label: "text-sm font-medium text-gray-700 dark:text-gray-300"
                   }}
                   placeholder="Saisir le montant"
                   type="number"
-                  value={
-                    monthlyNetBeforeTax === 0
-                      ? ""
-                      : monthlyNetBeforeTax.toString()
-                  }
+                  value={monthlyNetBeforeTax === 0 ? "" : monthlyNetBeforeTax.toString()}
                   onChange={handleMonthlyNetBeforeTaxChange}
                 />
               </div>
 
-              <div>
+              <div className="transform transition-all duration-200 hover:scale-[1.02]">
                 <Input
-                
-                  className="w-full"
+                  className="w-full bg-gray-50 dark:bg-gray-700"
                   color="success"
                   endContent={
                     <div className="pointer-events-none flex items-center">
-                      <span className="text-default-400 text-small">€</span>
+                      <span className="text-default-400 text-small font-medium">€</span>
                     </div>
                   }
                   label="Mensuel Net Après Impôt"
                   classNames={{
-                    label: "text-xs md:text-sm"
+                    label: "text-sm font-medium text-gray-700 dark:text-gray-300"
                   }}
                   placeholder="Saisir le montant net"
                   type="number"
-                  value={
-                    monthlySalaryNet === 0 ? "" : monthlySalaryNet.toString()
-                  }
+                  value={monthlySalaryNet === 0 ? "" : monthlySalaryNet.toString()}
                   onChange={handleMonthlyNetChange}
                 />
               </div>
@@ -683,72 +672,64 @@ export default function SalaryCalculator({
         </div>
 
         {/* Second Column - Annual values */}
-        <div className="space-y-2 md:space-y-4">
+        <div className="space-y-4 md:space-y-6">
           <div>
-            <h2 className="text-lg font-medium mb-2 md:mb-4">Annuel</h2>
-            <div className="space-y-2 md:space-y-4">
-              <div>
+            <h2 className="text-xl font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white">Annuel</h2>
+            <div className="space-y-4 md:space-y-6">
+              <div className="transform transition-all duration-200 hover:scale-[1.02]">
                 <Input
-                  className="w-full"
+                  className="w-full bg-gray-50 dark:bg-gray-700"
                   endContent={
                     <div className="pointer-events-none flex items-center">
-                      <span className="text-default-400 text-small">€</span>
+                      <span className="text-default-400 text-small font-medium">€</span>
                     </div>
                   }
                   label="Annuel Brut"
                   classNames={{
-                    label: "text-xs md:text-sm"
+                    label: "text-sm font-medium text-gray-700 dark:text-gray-300"
                   }}
                   placeholder="Saisir le montant brut"
                   type="number"
-                  value={
-                    annualSalaryGross === 0 ? "" : annualSalaryGross.toString()
-                  }
+                  value={annualSalaryGross === 0 ? "" : annualSalaryGross.toString()}
                   onChange={handleAnnualGrossChange}
                 />
               </div>
 
-              <div>
+              <div className="transform transition-all duration-200 hover:scale-[1.02]">
                 <Input
-                  className="w-full"
+                  className="w-full bg-gray-50 dark:bg-gray-700"
                   endContent={
                     <div className="pointer-events-none flex items-center">
-                      <span className="text-default-400 text-small">€</span>
+                      <span className="text-default-400 text-small font-medium">€</span>
                     </div>
                   }
                   label="Annuel Net Avant Impôt"
                   classNames={{
-                    label: "text-xs md:text-sm"
+                    label: "text-sm font-medium text-gray-700 dark:text-gray-300"
                   }}
                   placeholder="Saisir le montant"
                   type="number"
-                  value={
-                    annualNetBeforeTax === 0
-                      ? ""
-                      : annualNetBeforeTax.toString()
-                  }
+                  value={annualNetBeforeTax === 0 ? "" : annualNetBeforeTax.toString()}
                   onChange={handleAnnualNetBeforeTaxChange}
                 />
               </div>
 
-              <div>
+              <div className="transform transition-all duration-200 hover:scale-[1.02]">
                 <Input
-                  className="w-full"
+                  className="w-full bg-gray-50 dark:bg-gray-700"
                   color="success"
                   endContent={
                     <div className="pointer-events-none flex items-center">
-                      <span className="text-default-400 text-small">€</span>
+                      <span className="text-default-400 text-small font-medium">€</span>
                     </div>
                   }
                   label="Annuel Net Après Impôt"
                   classNames={{
-                    label: "text-xs md:text-sm"
+                    label: "text-sm font-medium text-gray-700 dark:text-gray-300"
                   }}
                   placeholder="Saisir le montant"
                   type="number"
-                  value={
-                    annualSalaryNet === 0 ? "" : annualSalaryNet.toString()
-                  }
+                  value={annualSalaryNet === 0 ? "" : annualSalaryNet.toString()}
                   onChange={handleAnnualNetChange}
                 />
               </div>
@@ -758,14 +739,14 @@ export default function SalaryCalculator({
       </div>
 
       {/* Parameters Row */}
-      <div className="mt-4 md:mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {/* Tax Rate Slider */}
-        <div className="flex flex-col">
-          <label className="block text-sm font-medium mb-4" htmlFor="taxRate">
-            Taux de prélèvement à la source: {taxRate.toFixed(1)}%
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl">
+          <label className="block text-lg font-semibold mb-4 text-gray-900 dark:text-white" htmlFor="taxRate">
+            Taux de prélèvement à la source: <span className="text-primary font-bold">{taxRate.toFixed(1)}%</span>
           </label>
-          <div className="flex items-center space-x-2">
-            <span className="text-sm">0%</span>
+          <div className="flex items-center space-x-4">
+            <span className="text-sm font-medium text-gray-600 dark:text-gray-400">0%</span>
             <Slider
               aria-label="Taux de prélèvement"
               className="flex-1"
@@ -777,29 +758,28 @@ export default function SalaryCalculator({
               value={taxRate}
               onChange={(value: number | number[]) => {
                 const newValue = Array.isArray(value) ? value[0] : value;
-
                 setTaxRate(newValue);
               }}
             />
-            <span className="text-sm">45%</span>
+            <span className="text-sm font-medium text-gray-600 dark:text-gray-400">45%</span>
           </div>
         </div>
 
         {/* Status Dropdown */}
-        <div className="flex flex-col">
-          <label className="block text-sm font-medium mb-1" htmlFor="status">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl">
+          <label className="block text-lg font-semibold mb-4 text-gray-900 dark:text-white" htmlFor="status">
             Statut
           </label>
           <Dropdown>
             <DropdownTrigger>
               <button
-                className="w-full px-4 py-2 text-left border rounded-full shadow-sm flex justify-between items-center"
+                className="w-full px-6 py-3 text-left border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm flex justify-between items-center bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-200"
                 id="status"
               >
-                <div className="flex items-center gap-2">
-                  <span>{status === "cadre" ? "Cadre" : "Non-cadre"}</span>
-                  <span className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
-                    {SOCIAL_CONTRIBUTIONS[status].rate * 100}%
+                <div className="flex items-center gap-3">
+                  <span className="font-medium text-gray-900 dark:text-white">{status === "cadre" ? "Cadre" : "Non-cadre"}</span>
+                  <span className="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full font-medium">
+                    {(SOCIAL_CONTRIBUTIONS[status].rate * 100).toFixed(1)}%
                   </span>
                 </div>
                 <svg
@@ -821,10 +801,7 @@ export default function SalaryCalculator({
               <DropdownItem key="cadre" onPress={() => setStatus("cadre")}>
                 Cadre
               </DropdownItem>
-              <DropdownItem
-                key="non-cadre"
-                onPress={() => setStatus("non-cadre")}
-              >
+              <DropdownItem key="non-cadre" onPress={() => setStatus("non-cadre")}>
                 Non-cadre
               </DropdownItem>
             </DropdownMenu>
@@ -833,12 +810,13 @@ export default function SalaryCalculator({
       </div>
 
       {/* Tax Brackets Table */}
-      <div className="mt-8 bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-sm">
-        <Table aria-label="Table des tranches d'imposition">
+      <div className="mt-8 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl">
+        <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Table des tranches d'imposition</h3>
+        <Table aria-label="Table des tranches d'imposition" className="border-collapse">
           <TableHeader>
-            <TableColumn>Tranche</TableColumn>
-            <TableColumn>Taux d&apos;imposition</TableColumn>
-            <TableColumn>Montant imposable</TableColumn>
+            <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold">Tranche</TableColumn>
+            <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold">Taux d'imposition</TableColumn>
+            <TableColumn className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold">Montant imposable</TableColumn>
           </TableHeader>
           <TableBody>
             {INCOME_TAX_BRACKETS.map((bracket, index) => {
@@ -848,10 +826,10 @@ export default function SalaryCalculator({
                 : `Plus de ${bracket.threshold.toLocaleString("fr-FR")} €`;
 
               return (
-                <TableRow key={index}>
-                  <TableCell>{index + 1}</TableCell>
-                  <TableCell>{(bracket.rate * 100).toFixed(0)}%</TableCell>
-                  <TableCell>{range}</TableCell>
+                <TableRow key={index} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                  <TableCell className="font-medium text-gray-900 dark:text-white">{index + 1}</TableCell>
+                  <TableCell className="font-medium text-primary">{(bracket.rate * 100).toFixed(0)}%</TableCell>
+                  <TableCell className="text-gray-600 dark:text-gray-400">{range}</TableCell>
                 </TableRow>
               );
             })}
