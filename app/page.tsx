@@ -9,8 +9,10 @@ import SalaryCalculator from "@/components/SalaryCalculator";
 import HorizontalBlogList from "@/components/HorizontalBlogList";
 import blogData from "@/data/blog.json";
 
+type StatusType = "cadre" | "non-cadre" | "fonction-publique" | "profession-liberale";
+
 export default function Home() {
-  const [status, setStatus] = useState<"cadre" | "non-cadre">("cadre");
+  const [status, setStatus] = useState<StatusType>("cadre");
   const rate = status === "cadre" ? "25%" : "22%";
 
   return (
