@@ -25,7 +25,7 @@ import {
   MONTHS_PER_YEAR,
 } from "@/config/taxRates2025";
 
-type StatusType = "cadre" | "non-cadre";
+type StatusType = "cadre" | "non-cadre" | "fonction-publique" | "profession-liberale";
 
 interface SalaryCalculatorProps {
   onStatusChange: (status: StatusType) => void;
@@ -603,12 +603,24 @@ export default function SalaryCalculator({
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto">
+    <div 
+      className="w-full max-w-5xl mx-auto"
+      role="main"
+      aria-label="Calculateur de salaire"
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-8 bg-white">
         {/* First Column - Monthly values */}
-        <div className="space-y-4 md:space-y-6">
+        <section 
+          className="space-y-4 md:space-y-6"
+          aria-labelledby="monthly-title"
+        >
           <div>
-            <h2 className="text-lg font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white">Mensuel</h2>
+            <h2 
+              id="monthly-title"
+              className="text-lg font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white"
+            >
+              Mensuel
+            </h2>
             <div className="space-y-4 md:space-y-6">
               <div className="transform transition-all duration-200 hover:scale-[1.02]">
                 <Input
@@ -626,7 +638,12 @@ export default function SalaryCalculator({
                   type="number"
                   value={monthlySalaryGross === 0 ? "" : monthlySalaryGross.toString()}
                   onChange={handleMonthlyGrossChange}
+                  aria-label="Salaire mensuel brut"
+                  aria-describedby="monthly-gross-description"
                 />
+                <p id="monthly-gross-description" className="sr-only">
+                  Montant du salaire mensuel brut avant déduction des charges sociales
+                </p>
               </div>
 
               <div className="transform transition-all duration-200 hover:scale-[1.02]">
@@ -645,7 +662,12 @@ export default function SalaryCalculator({
                   type="number"
                   value={monthlyNetBeforeTax === 0 ? "" : monthlyNetBeforeTax.toString()}
                   onChange={handleMonthlyNetBeforeTaxChange}
+                  aria-label="Salaire mensuel net avant impôt"
+                  aria-describedby="monthly-net-before-tax-description"
                 />
+                <p id="monthly-net-before-tax-description" className="sr-only">
+                  Montant du salaire mensuel net avant déduction des impôts
+                </p>
               </div>
 
               <div className="transform transition-all duration-200 hover:scale-[1.02]">
@@ -665,16 +687,29 @@ export default function SalaryCalculator({
                   type="number"
                   value={monthlySalaryNet === 0 ? "" : monthlySalaryNet.toString()}
                   onChange={handleMonthlyNetChange}
+                  aria-label="Salaire mensuel net après impôt"
+                  aria-describedby="monthly-net-after-tax-description"
                 />
+                <p id="monthly-net-after-tax-description" className="sr-only">
+                  Montant du salaire mensuel net après déduction des impôts
+                </p>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Second Column - Annual values */}
-        <div className="space-y-4 md:space-y-6">
+        <section 
+          className="space-y-4 md:space-y-6"
+          aria-labelledby="annual-title"
+        >
           <div>
-            <h2 className="text-lg font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white">Annuel</h2>
+            <h2 
+              id="annual-title"
+              className="text-lg font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white"
+            >
+              Annuel
+            </h2>
             <div className="space-y-4 md:space-y-6">
               <div className="transform transition-all duration-200 hover:scale-[1.02]">
                 <Input
@@ -692,7 +727,12 @@ export default function SalaryCalculator({
                   type="number"
                   value={annualSalaryGross === 0 ? "" : annualSalaryGross.toString()}
                   onChange={handleAnnualGrossChange}
+                  aria-label="Salaire annuel brut"
+                  aria-describedby="annual-gross-description"
                 />
+                <p id="annual-gross-description" className="sr-only">
+                  Montant du salaire annuel brut avant déduction des charges sociales
+                </p>
               </div>
 
               <div className="transform transition-all duration-200 hover:scale-[1.02]">
@@ -711,7 +751,12 @@ export default function SalaryCalculator({
                   type="number"
                   value={annualNetBeforeTax === 0 ? "" : annualNetBeforeTax.toString()}
                   onChange={handleAnnualNetBeforeTaxChange}
+                  aria-label="Salaire annuel net avant impôt"
+                  aria-describedby="annual-net-before-tax-description"
                 />
+                <p id="annual-net-before-tax-description" className="sr-only">
+                  Montant du salaire annuel net avant déduction des impôts
+                </p>
               </div>
 
               <div className="transform transition-all duration-200 hover:scale-[1.02]">
@@ -731,18 +776,31 @@ export default function SalaryCalculator({
                   type="number"
                   value={annualSalaryNet === 0 ? "" : annualSalaryNet.toString()}
                   onChange={handleAnnualNetChange}
+                  aria-label="Salaire annuel net après impôt"
+                  aria-describedby="annual-net-after-tax-description"
                 />
+                <p id="annual-net-after-tax-description" className="sr-only">
+                  Montant du salaire annuel net après déduction des impôts
+                </p>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
 
       {/* Parameters Row */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {/* Tax Rate Slider */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl">
-          <label className="block text-lg font-semibold mb-4 text-gray-900 dark:text-white" htmlFor="taxRate">
+        <div 
+          className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl"
+          role="group"
+          aria-labelledby="tax-rate-title"
+        >
+          <label 
+            id="tax-rate-title"
+            className="block text-lg font-semibold mb-4 text-gray-900 dark:text-white" 
+            htmlFor="taxRate"
+          >
             Taux de prélèvement à la source: <span className="text-primary font-bold">{taxRate.toFixed(1)}%</span>
           </label>
           <div className="flex items-center space-x-4">
@@ -760,14 +818,26 @@ export default function SalaryCalculator({
                 const newValue = Array.isArray(value) ? value[0] : value;
                 setTaxRate(newValue);
               }}
+              aria-describedby="tax-rate-description"
             />
             <span className="text-sm font-medium text-gray-600 dark:text-gray-400">45%</span>
           </div>
+          <p id="tax-rate-description" className="sr-only">
+            Ajustez le taux de prélèvement à la source pour calculer votre salaire net
+          </p>
         </div>
 
         {/* Status Dropdown */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl">
-          <label className="block text-lg font-semibold mb-4 text-gray-900 dark:text-white" htmlFor="status">
+        <div 
+          className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl"
+          role="group"
+          aria-labelledby="status-title"
+        >
+          <label 
+            id="status-title"
+            className="block text-lg font-semibold mb-4 text-gray-900 dark:text-white" 
+            htmlFor="status"
+          >
             Statut
           </label>
           <Dropdown>
@@ -775,9 +845,17 @@ export default function SalaryCalculator({
               <button
                 className="w-full px-6 py-3 text-left border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm flex justify-between items-center bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-200"
                 id="status"
+                aria-haspopup="listbox"
+                aria-expanded="false"
               >
                 <div className="flex items-center gap-3">
-                  <span className="font-medium text-gray-900 text-sm dark:text-white">{status === "cadre" ? "Cadre" : "Non-cadre"}</span>
+                  <span className="font-medium text-gray-900 text-sm dark:text-white">
+                    {status === "cadre" ? "Cadre" :
+                     status === "non-cadre" ? "Non-cadre" :
+                     status === "fonction-publique" ? "Fonction publique" :
+                     "Profession libérale"
+                    }
+                  </span>
                   <span className="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full font-medium">
                     {(SOCIAL_CONTRIBUTIONS[status].rate * 100).toFixed(1)}%
                   </span>
@@ -787,6 +865,7 @@ export default function SalaryCalculator({
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path
                     d="M19 9l-7 7-7-7"
@@ -797,12 +876,18 @@ export default function SalaryCalculator({
                 </svg>
               </button>
             </DropdownTrigger>
-            <DropdownMenu>
+            <DropdownMenu role="listbox" aria-label="Statut professionnel">
               <DropdownItem key="cadre" onPress={() => setStatus("cadre")}>
                 Cadre
               </DropdownItem>
               <DropdownItem key="non-cadre" onPress={() => setStatus("non-cadre")}>
                 Non-cadre
+              </DropdownItem>
+              <DropdownItem key="fonction-publique" onPress={() => setStatus("fonction-publique")}>
+                Fonction publique
+              </DropdownItem>
+              <DropdownItem key="profession-liberale" onPress={() => setStatus("profession-liberale")}>
+                Profession libérale
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
@@ -810,8 +895,16 @@ export default function SalaryCalculator({
       </div>
 
       {/* Tax Brackets Table */}
-      <div className="mt-8 bg-white dark:bg-gray-800 p-3 md:p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Table des tranches d&apos;imposition</h3>
+      <section 
+        className="mt-8 bg-white dark:bg-gray-800 p-3 md:p-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl"
+        aria-labelledby="tax-brackets-title"
+      >
+        <h3 
+          id="tax-brackets-title"
+          className="text-lg font-semibold text-gray-900 dark:text-white"
+        >
+          Table des tranches d&apos;imposition
+        </h3>
         <div className="overflow-x-auto">
           <Table 
             aria-label="Table des tranches d&apos;imposition"
@@ -844,17 +937,21 @@ export default function SalaryCalculator({
                   : `Plus de ${bracket.threshold.toLocaleString("fr-FR")} €`;
 
                 return (
-                  <TableRow key={index} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
-                    <TableCell className="font-medium text-xs  text-gray-900 dark:text-white w-1/3">{index + 1}</TableCell>
+                  <TableRow 
+                    key={index} 
+                    className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+                    role="row"
+                  >
+                    <TableCell className="font-medium text-xs text-gray-900 dark:text-white w-1/3">{index + 1}</TableCell>
                     <TableCell className="font-medium text-primary w-1/3">{(bracket.rate * 100).toFixed(0)}%</TableCell>
-                    <TableCell className="text-gray-600 text-sm  dark:text-gray-400 w-1/3">{range}</TableCell>
+                    <TableCell className="text-gray-600 text-sm dark:text-gray-400 w-1/3">{range}</TableCell>
                   </TableRow>
                 );
               })}
             </TableBody>
           </Table>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

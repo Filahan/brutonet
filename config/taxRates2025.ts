@@ -1,5 +1,5 @@
 // Types for social contributions
-export type StatusType = "cadre" | "non-cadre";
+export type StatusType = "cadre" | "non-cadre" | "fonction-publique" | "profession-liberale";
 
 export interface SocialContribution {
   rate: number;
@@ -21,6 +21,16 @@ export const SOCIAL_CONTRIBUTIONS: SocialContributions = {
   "non-cadre": {
     rate: 0.22, // 22% de charges sociales
     coefficient: 0.78, // Coefficient de conversion (1 - taux)
+  },
+  // Taux pour la fonction publique
+  "fonction-publique": {
+    rate: 0.15, // 15% de charges sociales
+    coefficient: 0.85, // Coefficient de conversion (1 - taux)
+  },
+  // Taux pour les professions libérales
+  "profession-liberale": {
+    rate: 0.45, // 45% de charges sociales
+    coefficient: 0.55, // Coefficient de conversion (1 - taux)
   },
 };
 
