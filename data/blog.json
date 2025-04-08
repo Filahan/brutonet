@@ -99,6 +99,106 @@
           }
         ]
       }
+    },
+    {
+      "id": "lettre-motivation-2025",
+      "title": "La Lettre de Motivation en 2025 : Est-elle Encore Pertinente ?",
+      "description": "Analyse prospective : la lettre de motivation est-elle toujours nécessaire en 2025 ?",
+      "image": "/blog/lettre-motivation-2025.png",
+      "date": "2025-04-07",
+      "content": {
+        "introduction": "Alors que l'IA et les nouvelles technologies transforment profondément le recrutement, la question de la pertinence de la lettre de motivation se pose plus que jamais. Ce guide analyse les évolutions du marché et vous donne les clés pour vous démarquer en 2025.",
+        "sections": [
+          {
+            "title": "L'état de la lettre de motivation en 2025",
+            "content": "Le paysage du recrutement a radicalement changé. Voici les tendances majeures qui influencent l'utilisation de la lettre de motivation :",
+            "list": [
+              "L'IA domine le processus de pré-sélection (90% des grandes entreprises)",
+              "Les profils vidéo et les portfolios digitaux gagnent en importance",
+              "Les réseaux professionnels deviennent la première source de recrutement",
+              "L'évaluation des soft skills via des tests en ligne",
+              "La réalité virtuelle dans les entretiens"
+            ]
+          },
+          {
+            "title": "Quand la lettre de motivation reste pertinente",
+            "content": "Dans certains contextes, la lettre de motivation conserve sa valeur ajoutée :",
+            "list": [
+              "Postes à responsabilités ou de direction",
+              "Secteurs traditionnels ou réglementés",
+              "Candidatures spontanées",
+              "Entreprises avec une culture formelle",
+              "Postes nécessitant une forte personnalisation"
+            ]
+          },
+          {
+            "title": "Les alternatives modernes",
+            "content": "Les nouvelles formes de candidature qui remplacent souvent la lettre traditionnelle :",
+            "list": [
+              "Vidéos de présentation personnalisées",
+              "Portfolios interactifs en ligne",
+              "Profils LinkedIn optimisés",
+              "Projets personnels ou open source",
+              "Certifications digitales et badges"
+            ]
+          },
+          {
+            "title": "L'impact de l'IA sur le recrutement",
+            "content": "Comment l'intelligence artificielle transforme le processus de candidature :",
+            "list": [
+              "Analyse automatique des profils",
+              "Matching IA entre candidats et postes",
+              "Évaluation des compétences via des tests automatisés",
+              "Pré-entretiens avec des chatbots",
+              "Prédiction de la compatibilité culturelle"
+            ]
+          },
+          {
+            "title": "Comment se démarquer en 2025",
+            "content": "Les stratégies gagnantes pour les candidats modernes :",
+            "list": [
+              "Créer une présence digitale cohérente",
+              "Développer un portfolio de projets concrets",
+              "Obtenir des certifications reconnues",
+              "Maintenir un réseau professionnel actif",
+              "Démontrer des compétences en IA et digital"
+            ]
+          },
+          {
+            "title": "Les compétences clés de 2025",
+            "content": "Les compétences qui font la différence dans le recrutement moderne :",
+            "list": [
+              "Adaptabilité et résilience",
+              "Intelligence émotionnelle",
+              "Compétences en IA et automatisation",
+              "Créativité et innovation",
+              "Capacité d'apprentissage continu"
+            ]
+          },
+          {
+            "title": "Préparer sa candidature en 2025",
+            "content": "Guide pratique pour une approche moderne :",
+            "list": [
+              "Optimiser son profil LinkedIn",
+              "Créer un portfolio digital",
+              "Préparer une vidéo de présentation",
+              "Collecter des recommandations en ligne",
+              "Développer sa marque personnelle"
+            ]
+          },
+          {
+            "title": "Perspectives d'avenir",
+            "content": "Les tendances émergentes qui vont transformer le recrutement :",
+            "list": [
+              "Recrutement par compétences plutôt que par diplômes",
+              "Évaluation continue des performances",
+              "Travail hybride et collaboration à distance",
+              "Focus sur la diversité et l'inclusion",
+              "Intégration de la réalité virtuelle"
+            ]
+          }
+        ]
+      }
     }
   ]
 } 
